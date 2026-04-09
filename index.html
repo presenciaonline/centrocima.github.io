@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CIMA | Coaching Ontológico · Morón</title>
+  <meta name="description" content="Talleres vivenciales de coaching ontológico en Morón. Transformá tu manera de pensar, sentir y actuar. CIMA – Centro Integral de Métodos de Aprendizaje.">
+
+  <link rel="stylesheet" href="cima.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+
+    /* ─── LOGO ─── */
+    .logo { display:flex; align-items:center; text-decoration:none; }
+    .logo img { height:80px; width:auto; display:block; }
+
+    /* ─── KICKER ─── */
+    .kicker {
+      display:inline-block;
+      font-family:'Poppins',sans-serif;
+      font-size:0.72rem; font-weight:600;
+      letter-spacing:2px; text-transform:uppercase;
+      color:#1E73BE;
+      border:1.5px solid rgba(30,115,190,0.28);
+      border-radius:99px; padding:4px 14px;
+      margin-bottom:18px;
+    }
+
+    /* ─── SECCIONES ─── */
+    .ci-s        { padding:90px 22px; }
+    .ci-blanca   { background:#fff; }
+    .ci-gris     { background:#f4f8fc; }
+    .ci-verde    { background:#eaf7f1; }
+
+    .ci-inner    { max-width:1140px; margin:0 auto; }
+    .ci-centro   { text-align:center; }
+
+    .ci-titulo {
+      font-family:'Poppins',sans-serif;
+      font-size:clamp(1.5rem,3vw,2.1rem);
+      font-weight:700; color:#1a2332;
+      line-height:1.2; margin-bottom:14px;
+    }
+    .ci-sub {
+      font-size:0.98rem; color:#555;
+      line-height:1.85; max-width:580px;
+      margin:0 auto 50px;
+    }
+
+    /* ─── GRID 2 COL (imagen + texto alternado) ─── */
+    .ci-grid2 {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:68px; align-items:center;
+      max-width:1100px; margin:0 auto;
+    }
+    .ci-grid2.reverse { direction:rtl; }
+    .ci-grid2.reverse > * { direction:ltr; }
+
+    .ci-foto img {
+  width:100%; border-radius:18px; display:block;
+  box-shadow:0 14px 40px rgba(0,0,0,0.13);
+  object-fit:contain;
+    }
+    .ci-texto h2 {
+      font-family:'Poppins',sans-serif;
+      font-size:clamp(1.3rem,2.5vw,1.85rem);
+      font-weight:700; color:#1a2332;
+      line-height:1.25; margin-bottom:16px;
+    }
+    .ci-texto p {
+      color:#555; font-size:0.95rem;
+      line-height:1.85; margin-bottom:14px;
+    }
+    .ci-num {
+      display:inline-block;
+      font-family:'Poppins',sans-serif;
+      font-size:0.7rem; font-weight:700;
+      color:#4e9530; letter-spacing:1.5px;
+      text-transform:uppercase;
+      background:rgba(107,190,68,0.12);
+      border-radius:99px; padding:3px 12px;
+      margin-bottom:14px;
+    }
+    .link-arrow {
+      font-family:'Poppins',sans-serif;
+      font-size:0.88rem; font-weight:600;
+      color:#1E73BE; text-decoration:none;
+      display:inline-block; margin-top:8px;
+      transition:all .2s ease;
+    }
+    .link-arrow:hover { color:#155a96; transform:translateX(3px); }
+
+    /* ─── TARJETAS ESTILO B (foto arriba) ─── */
+    .ci-cards {
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:24px;
+      max-width:1100px; margin:0 auto 36px;
+    }
+    .ci-card {
+      background:#fff; border-radius:18px;
+      box-shadow:0 4px 20px rgba(0,0,0,0.07);
+      text-decoration:none; color:inherit;
+      display:flex; flex-direction:column;
+      transition:all .25s ease;
+      border:1.5px solid transparent;
+      overflow:hidden;
+    }
+    .ci-card:hover {
+      transform:translateY(-5px);
+      box-shadow:0 14px 36px rgba(0,0,0,0.12);
+      border-color:rgba(30,115,190,0.18);
+    }
+    .ci-card-foto {
+  width:100%;
+  object-fit:contain;
+  display:block;
+}
+    .ci-card-body { padding:24px 22px; flex:1; display:flex; flex-direction:column; gap:8px; }
+    .ci-card-body h3 {
+      font-family:'Poppins',sans-serif;
+      font-size:1rem; font-weight:600; color:#1a2332;
+    }
+    .ci-card-body p {
+      font-size:0.87rem; color:#555;
+      line-height:1.7; flex:1;
+    }
+    .ci-card-link {
+      font-family:'Poppins',sans-serif;
+      font-size:0.82rem; font-weight:600;
+      color:#1E73BE; margin-top:6px;
+    }
+
+    /* ─── REFLEXIONES (foto + cita centrada) ─── */
+    .ci-reflexion-body {
+      padding:28px 22px;
+      text-align:center;
+      flex:1; display:flex;
+      flex-direction:column; gap:14px;
+      align-items:center;
+    }
+    .ci-reflexion-body blockquote {
+      font-family:'Poppins',sans-serif;
+      font-size:0.97rem; font-weight:500;
+      color:#1a2332; line-height:1.65;
+      font-style:italic; flex:1;
+    }
+    .ci-card.reflexion { border-top:3px solid #1E73BE; }
+
+    /* ─── CARRERA ─── */
+    .ci-carrera {
+      background:linear-gradient(135deg,rgba(30,115,190,0.05),rgba(107,190,68,0.06));
+      border:1.5px solid rgba(30,115,190,0.15);
+      border-radius:18px; padding:50px 44px;
+      max-width:720px; margin:0 auto;
+      text-align:center;
+    }
+    .ci-carrera h3 {
+      font-family:'Poppins',sans-serif;
+      font-size:1.3rem; font-weight:700;
+      color:#1a2332; margin-bottom:14px;
+    }
+    .ci-carrera p {
+      color:#555; font-size:0.94rem;
+      line-height:1.8; max-width:520px;
+      margin:0 auto 12px;
+    }
+    .ci-carrera img {
+  width:100%; max-width:420px;
+  border-radius:12px; display:block;
+  margin:0 auto 24px;
+  object-fit:contain;
+}
+    .ci-carrera-datos {
+      display:flex; gap:40px;
+      justify-content:center; flex-wrap:wrap;
+      margin:24px 0 30px;
+    }
+    .ci-carrera-dato strong {
+      display:block;
+      font-family:'Poppins',sans-serif;
+      font-size:0.98rem; font-weight:700;
+      color:#1a2332; margin-bottom:2px;
+    }
+    .ci-carrera-dato span { font-size:0.8rem; color:#555; }
+
+    /* ─── BOTONES ─── */
+    .btn-azul {
+      display:inline-block; background:#1E73BE;
+      color:#fff; font-family:'Poppins',sans-serif;
+      font-weight:600; font-size:0.95rem;
+      padding:15px 32px; border-radius:10px;
+      text-decoration:none; transition:all .25s ease;
+      border:none; cursor:pointer;
+    }
+    .btn-azul:hover { background:#155a96; transform:translateY(-2px); box-shadow:0 8px 20px rgba(30,115,190,0.3); }
+
+    .btn-outline {
+      display:inline-block; background:transparent;
+      color:#1E73BE; font-family:'Poppins',sans-serif;
+      font-weight:600; font-size:0.95rem;
+      padding:13px 30px; border-radius:10px;
+      text-decoration:none; border:2px solid #1E73BE;
+      transition:all .25s ease;
+    }
+    .btn-outline:hover { background:#1E73BE; color:#fff; transform:translateY(-2px); }
+
+    /* ─── CONTACTO ─── */
+    .ci-contacto-grid {
+      display:grid; grid-template-columns:1fr 1fr;
+      gap:60px; max-width:1000px;
+      margin:0 auto; align-items:start;
+    }
+    .ci-info h3 {
+      font-family:'Poppins',sans-serif;
+      font-size:1.05rem; font-weight:700;
+      color:#1a2332; margin-bottom:12px;
+    }
+    .ci-info p {
+      color:#555; font-size:0.92rem;
+      line-height:1.8; margin-bottom:22px;
+    }
+    .ci-datos { display:flex; flex-direction:column; gap:14px; margin-bottom:28px; }
+    .ci-dato {
+      display:flex; align-items:flex-start;
+      gap:12px; font-size:0.9rem; color:#555; line-height:1.5;
+    }
+    .ci-dato-ico {
+      width:36px; height:36px; border-radius:10px;
+      background:rgba(30,115,190,0.09);
+      display:flex; align-items:center;
+      justify-content:center; font-size:1rem; flex-shrink:0;
+    }
+    .ci-dato strong { color:#1a2332; display:block; font-size:0.82rem; }
+
+    /* Formulario */
+    .ci-form {
+      background:#fff; border-radius:18px;
+      padding:32px 28px;
+      box-shadow:0 4px 20px rgba(0,0,0,0.07);
+    }
+    .ci-form h3 {
+      font-family:'Poppins',sans-serif;
+      font-size:1rem; font-weight:700;
+      color:#1a2332; margin-bottom:20px;
+    }
+    .fg { display:flex; flex-direction:column; gap:6px; margin-bottom:14px; }
+    .fg label {
+      font-family:'Poppins',sans-serif;
+      font-size:0.79rem; font-weight:600; color:#1a2332;
+    }
+    .fg input, .fg textarea, .fg select {
+      padding:11px 14px;
+      border:1.5px solid rgba(30,115,190,0.18);
+      border-radius:8px;
+      font-family:'Open Sans',sans-serif;
+      font-size:0.88rem; color:#1a2332;
+      transition:border-color .2s; background:#fff; width:100%;
+    }
+    .fg input:focus, .fg textarea:focus, .fg select:focus {
+      outline:none; border-color:#1E73BE;
+    }
+    .fg textarea { resize:vertical; min-height:100px; }
+    .form-btn {
+      width:100%; padding:14px;
+      background:#1E73BE; color:#fff;
+      border:none; border-radius:10px;
+      font-family:'Poppins',sans-serif;
+      font-size:0.95rem; font-weight:600;
+      cursor:pointer; transition:all .25s ease;
+    }
+    .form-btn:hover { background:#155a96; transform:translateY(-2px); }
+
+    /* Mercado Pago */
+    .mp-bloque {
+      margin-top:20px;
+      background:linear-gradient(135deg,#f0f9ff,#eef7fd);
+      border:1.5px solid rgba(0,158,227,0.22);
+      border-radius:12px; padding:20px 18px;
+    }
+    .mp-header { display:flex; align-items:center; gap:10px; margin-bottom:7px; }
+    .mp-titulo {
+      font-family:'Poppins',sans-serif;
+      font-weight:700; font-size:0.9rem; color:#1a2332;
+    }
+    .mp-sub { font-size:0.82rem; color:#555; line-height:1.6; margin-bottom:13px; }
+    .mp-btn {
+      display:inline-block; background:#009ee3; color:#fff;
+      font-family:'Poppins',sans-serif; font-weight:700;
+      font-size:0.82rem; padding:9px 22px; border-radius:99px;
+      text-decoration:none; transition:all .2s ease;
+      box-shadow:0 2px 8px rgba(0,158,227,0.28);
+    }
+    .mp-btn:hover { background:#007ec2; transform:translateY(-2px); }
+    .mp-nota { font-size:0.71rem; color:#999; margin-top:9px; }
+
+    /* ─── CTA FINAL ─── */
+    .ci-cta-final {
+      background:linear-gradient(135deg,#155a96 0%,#1E73BE 60%,#2185d8 100%);
+      padding:90px 22px; text-align:center;
+      position:relative; overflow:hidden;
+    }
+    .ci-cta-final::before {
+      content:''; position:absolute;
+      top:-80px; right:-80px;
+      width:360px; height:360px;
+      background:rgba(255,255,255,0.05); border-radius:50%;
+    }
+    .ci-cta-final::after {
+      content:''; position:absolute;
+      bottom:-60px; left:-60px;
+      width:260px; height:260px;
+      background:rgba(107,190,68,0.08); border-radius:50%;
+    }
+    .ci-cta-final .ci-inner { position:relative; z-index:1; }
+    .ci-cta-final h2 {
+      font-family:'Poppins',sans-serif;
+      font-size:clamp(1.6rem,3.5vw,2.4rem);
+      font-weight:700; color:#fff;
+      line-height:1.2; margin-bottom:16px;
+    }
+    .ci-cta-final p {
+      color:rgba(255,255,255,0.8); font-size:1rem;
+      max-width:520px; margin:0 auto 36px; line-height:1.75;
+    }
+    .btn-blanco {
+      display:inline-block; background:#fff;
+      color:#1E73BE; font-family:'Poppins',sans-serif;
+      font-weight:700; font-size:0.95rem;
+      padding:15px 32px; border-radius:10px;
+      text-decoration:none; transition:all .25s ease;
+      box-shadow:0 4px 16px rgba(0,0,0,0.15);
+    }
+    .btn-blanco:hover { transform:translateY(-2px); box-shadow:0 8px 24px rgba(0,0,0,0.2); }
+
+    /* ─── GRID FOTOS 2x2 ─── */
+    .ci-foto-grid {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      grid-template-rows:1fr 1fr;
+      gap:10px;
+      border-radius:18px;
+      overflow:hidden;
+      box-shadow:0 14px 40px rgba(0,0,0,0.13);
+      aspect-ratio:4/3;
+    }
+    .ci-foto-grid img {
+      width:100%; height:100%;
+      object-fit:cover; display:block;
+    }
+
+    /* ─── CARRUSEL REFLEXIONES ─── */
+    .carrusel-wrapper {
+      position:relative;
+      max-width:1100px;
+      margin:0 auto;
+      overflow:hidden;
+    }
+    .carrusel-track {
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:22px;
+    }
+    .carrusel-slide {
+      border-radius:18px;
+      overflow:hidden;
+      box-shadow:0 4px 20px rgba(0,0,0,0.08);
+      display:block;
+      transition:all .25s ease;
+      border:1.5px solid transparent;
+    }
+    .carrusel-slide:hover {
+      transform:translateY(-5px);
+      box-shadow:0 14px 36px rgba(0,0,0,0.12);
+      border-color:rgba(30,115,190,0.18);
+    }
+    .carrusel-slide img {
+      width:100%; display:block;
+      object-fit:contain;
+    }
+    .carrusel-dots { display:none; }
+
+    @media (max-width:768px) {
+      .carrusel-track {
+        display:flex;
+        transition:transform .4s ease;
+        gap:0;
+      }
+      .carrusel-slide {
+        min-width:100%;
+        border-radius:14px;
+        margin:0 8px;
+        min-width:calc(100% - 16px);
+      }
+      .carrusel-dots {
+        display:flex;
+        justify-content:center;
+        gap:10px;
+        margin-top:20px;
+      }
+      .dot {
+        width:10px; height:10px;
+        border-radius:50%;
+        background:rgba(30,115,190,0.25);
+        cursor:pointer;
+        transition:background .2s;
+      }
+      .dot.activo { background:#1E73BE; }
+    }
+
+    /* ─── DIVISOR SECCIÓN ─── */
+    .ci-divisor {
+      height:1px; background:linear-gradient(90deg,transparent,rgba(30,115,190,0.15),transparent);
+      max-width:1100px; margin:0 auto;
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width:900px) {
+      .ci-grid2 { grid-template-columns:1fr; gap:36px; }
+      .ci-grid2.reverse { direction:ltr; }
+      .ci-cards { grid-template-columns:1fr; max-width:480px; margin-left:auto; margin-right:auto; }
+      .ci-contacto-grid { grid-template-columns:1fr; gap:40px; }
+      .ci-carrera { padding:36px 24px; }
+      .ci-carrera-datos { gap:24px; }
+    }
+    @media (min-width:600px) and (max-width:900px) {
+      .ci-cards { grid-template-columns:repeat(2,1fr); max-width:100%; }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- ══════════════════════════════════════
+       BOTONES FLOTANTES
+  ══════════════════════════════════════ -->
+  <a href="https://www.instagram.com/cima.aprendizaje" target="_blank" class="instagram-float">
+    <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
+  </a>
+  <a href="https://wa.me/5491161802964?text=Hola,%20quiero%20información%20sobre%20los%20talleres%20de%20CIMA." target="_blank" class="whatsapp-float">
+    <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
+  </a>
+
+  <!-- ══════════════════════════════════════
+       HEADER
+  ══════════════════════════════════════ -->
+  <header class="header">
+    <div class="header-inner">
+
+      <a href="index.html" class="logo">
+        <img src="img/CIMA_LOGO.jpg" alt="CIMA – Centro Integral de Métodos de Aprendizaje">
+      </a>
+
+      <nav class="nav" id="nav-menu">
+        <a href="index.html">Inicio</a>
+        <a href="conocenos.html">Conócenos</a>
+        <a href="talleres.html">Talleres</a>
+        <a href="reflexiones.html">Reflexiones</a>
+        <a href="contacto.html">Contacto</a>
+      </nav>
+
+      <div class="hamburger" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+    </div>
+  </header>
+
+
+  <!-- ══════════════════════════════════════
+       HERO — estructura original intacta
+       Imágenes: img/hero1.jpg (Silvia)
+                 img/hero2.jpg (Julieta)
+  ══════════════════════════════════════ -->
+  <section class="hero reveal">
+
+    <div class="hero-content">
+      <h3 class="hero-nombre">Coaching Ontológico · Morón</h3>
+      <h1>¿Qué te frena para vivir la vida que elegís?</h1>
+      <p>
+        Somos Silvia y Julieta. En CIMA trabajamos sobre lo que pensás, lo que sentís y cómo actuás.<br>
+        No es teoría. Es un proceso vivencial de transformación real.
+      </p>
+      <a class="cta" href="talleres.html">Ver talleres</a>
+    </div>
+
+    <div class="hero-image">
+      <img src="img/hero1.jpg" alt="Silvia – CEO Coach Ontológico Profesional">
+      <img src="img/hero2.jpg" alt="Julieta – CEO Coach Ontológico Profesional">
+    </div>
+
+  </section>
+
+
+  <!-- ══════════════════════════════════════
+       ¿QUÉ ES CIMA? — Estilo A
+       Imagen: img/cima-espacio.jpg
+  ══════════════════════════════════════ -->
+  <section class="ci-s ci-blanca reveal">
+    <div class="ci-inner">
+      <div class="ci-grid2">
+
+        <div class="ci-foto">
+          <!-- Grid 2x2 con fotos de los grupos de talleres -->
+          <div class="ci-foto-grid">
+            <img src="img/grupo-1.jpg" alt="Taller CIMA – grupo grande">
+            <img src="img/grupo-2.jpg" alt="Taller CIMA – grupo con cortinas">
+            <img src="img/grupo-3.jpg" alt="Taller CIMA – grupo mediano">
+            <img src="img/grupo-4.jpg" alt="Taller CIMA – grupo verano">
+          </div>
+        </div>
+
+        <div class="ci-texto">
+          <span class="kicker">Conócenos</span>
+          <h2>Un espacio donde el cambio empieza por observarte.</h2>
+          <p>
+            El coaching ontológico trabaja sobre la forma en que interpretás lo que te pasa. Sobre las decisiones que tomás y cómo actuás en tu vida cotidiana.
+          </p>
+          <p>
+            En CIMA generamos espacios donde eso se observa, se cuestiona y se transforma. No desde la teoría. Desde la experiencia vivencial.
+          </p>
+          <p>
+            El orden de la vida empieza por el ser. Cuando cambia quién estás siendo, cambia lo que hacés. Y cuando cambia lo que hacés, cambia lo que tenés.
+          </p>
+          <a href="conocenos.html" class="link-arrow">Conocé el centro →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="ci-divisor"></div>
+
+
+  <!-- ══════════════════════════════════════
+       TALLERES — Estilo B tarjetas
+  ══════════════════════════════════════ -->
+  <section class="ci-s ci-gris reveal">
+    <div class="ci-inner ci-centro">
+      <span class="kicker">Talleres Vivenciales</span>
+      <h2 class="ci-titulo">Un recorrido de transformación</h2>
+      <p class="ci-sub">
+        Tres niveles que se construyen uno sobre el otro. Cada instancia es una experiencia en sí misma — y a la vez, un paso hacia la siguiente.
+      </p>
+
+      <div class="ci-cards">
+
+        <!-- img/taller-dc1.jpg → foto del taller Darse Cuenta Nivel 1 -->
+        <a href="talleres.html#darse-cuenta-1" class="ci-card">
+          <img src="img/taller-dc1.jpg" alt="Darse Cuenta Nivel 1" class="ci-card-foto">
+          <div class="ci-card-body">
+            <span class="ci-num">Nivel 1</span>
+            <h3>Darse Cuenta</h3>
+            <p>El punto de partida. Empezás a observar tus pensamientos, tus emociones y tus patrones de acción.</p>
+            <span class="ci-card-link">Ver taller →</span>
+          </div>
+        </a>
+
+        <!-- img/taller-dc2.jpg → foto del taller Darse Cuenta Nivel 2 -->
+        <a href="talleres.html#darse-cuenta-2" class="ci-card">
+          <img src="img/taller-dc2.jpg" alt="Darse Cuenta Nivel 2" class="ci-card-foto">
+          <div class="ci-card-body">
+            <span class="ci-num">Nivel 2</span>
+            <h3>Darse Cuenta</h3>
+            <p>La profundización. Con lo trabajado en el nivel anterior, avanzás sobre creencias más arraigadas y ampliás tu visión de lo que es posible para vos.</p>
+            <span class="ci-card-link">Ver taller →</span>
+          </div>
+        </a>
+
+        <!-- img/taller-peldanos.jpg → foto del taller Peldaños -->
+        <a href="talleres.html#peldanos" class="ci-card">
+          <img src="img/taller-peldanos.jpg" alt="Peldaños Nivel 3" class="ci-card-foto">
+          <div class="ci-card-body">
+            <span class="ci-num">Nivel 3</span>
+            <h3>Peldaños</h3>
+            <p>La integración de todo lo trabajado y de tu manera de estar en el mundo.</p>
+            <span class="ci-card-link">Ver taller →</span>
+          </div>
+        </a>
+
+      </div>
+
+      <a href="talleres.html" class="btn-outline">Ver todos los talleres</a>
+
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════
+       CARRERA DE COACHING — bloque simple
+  ══════════════════════════════════════ -->
+  <section class="ci-s ci-blanca reveal">
+    <div class="ci-inner ci-centro">
+      <span class="kicker">Formación profesional</span>
+      <h2 class="ci-titulo">¿Querés convertirte en coach?</h2>
+      <p class="ci-sub">
+        Para quienes completaron el recorrido vivencial y quieren dar el siguiente paso: formarse profesionalmente para acompañar a otros en su proceso de transformación.
+      </p>
+
+      <div class="ci-carrera">
+        <img src="img/coach.jpg" alt="Carrera de Coaching CIMA">
+        <h3>Carrera de Coaching</h3>
+        <p>
+          Una formación 100% online para quienes, después de atravesar los talleres, sienten el llamado de acompañar a otros.
+        </p>
+        <div class="ci-carrera-datos">
+          <div class="ci-carrera-dato">
+            <strong>100% online</strong>
+            <span>Modalidad</span>
+          </div>
+          <div class="ci-carrera-dato">
+            <strong>Lunes</strong>
+            <span>Día de inicio</span>
+          </div>
+          <div class="ci-carrera-dato">
+            <strong>Abiertas</strong>
+            <span>Inscripciones</span>
+          </div>
+        </div>
+        <p>Para más información, escribile directamente a Julieta.</p>
+        <a href="https://wa.me/5491134635313?text=Hola%20Julieta,%20quiero%20información%20sobre%20la%20carrera%20de%20coaching." target="_blank" class="btn-azul">
+          Consultar por WhatsApp
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="ci-divisor"></div>
+
+
+  <!-- ══════════════════════════════════════
+       REFLEXIONES — solo fotos, carrusel en mobile
+  ══════════════════════════════════════ -->
+  <section class="ci-s ci-verde reveal">
+    <div class="ci-inner ci-centro">
+      <span class="kicker">Para pensar</span>
+      <h2 class="ci-titulo">Reflexiones</h2>
+      <p class="ci-sub">
+        Preguntas y pensamientos para que algo se mueva adentro. No hace falta responderlos. Alcanza con sostenerlos.
+      </p>
+
+      <!-- Carrusel wrapper -->
+      <div class="carrusel-wrapper">
+        <div class="carrusel-track" id="carrusel-track">
+
+          <!-- img/miedo-1.jpg -->
+          <a href="reflexiones.html" class="carrusel-slide">
+            <img src="img/miedo-1.jpg" alt="Reflexión CIMA">
+          </a>
+
+          <!-- img/decisiones-1.jpg -->
+          <a href="reflexiones.html" class="carrusel-slide">
+            <img src="img/decisiones-1.jpg" alt="Reflexión CIMA">
+          </a>
+
+          <!-- img/emociones-1.jpg -->
+          <a href="reflexiones.html" class="carrusel-slide">
+            <img src="img/emociones-1.jpg" alt="Reflexión CIMA">
+          </a>
+
+        </div>
+
+        <!-- Puntos — solo visibles en mobile -->
+        <div class="carrusel-dots" id="carrusel-dots">
+          <span class="dot activo" onclick="irASlide(0)"></span>
+          <span class="dot" onclick="irASlide(1)"></span>
+          <span class="dot" onclick="irASlide(2)"></span>
+        </div>
+      </div>
+
+      <a href="reflexiones.html" class="btn-outline" style="margin-top:36px;">Ver todas las reflexiones</a>
+
+    </div>
+  </section>
+
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════
+       CTA FINAL
+  ══════════════════════════════════════ -->
+  <section class="ci-cta-final reveal">
+    <div class="ci-inner">
+      <h2>¿Estás listo para liderar tu vida?</h2>
+      <p>
+        Si algo de todo esto resuena con vos, es una señal. Escribinos y te orientamos según tu momento y lo que estés buscando.
+      </p>
+      <a href="https://wa.me/5491161802964?text=Hola,%20quiero%20información%20sobre%20los%20talleres%20de%20CIMA." target="_blank" class="btn-blanco">
+        Escribinos por WhatsApp
+      </a>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════
+       CONTACTO
+  ══════════════════════════════════════ -->
+  <section class="ci-s ci-blanca reveal" id="contacto">
+    <div class="ci-inner">
+
+      <div class="ci-centro" style="margin-bottom:50px;">
+        <span class="kicker">Contacto</span>
+        <h2 class="ci-titulo">¿Hablamos?</h2>
+      </div>
+
+      <div class="ci-contacto-grid">
+
+        <!-- INFO -->
+        <div class="ci-info">
+          <h3>Estamos para acompañarte</h3>
+          <p>
+            Si tenés dudas sobre los talleres, querés saber cuál es el punto de entrada para vos, o simplemente querés conocernos antes de decidir, escribinos. Respondemos a la brevedad.
+          </p>
+
+          <div class="ci-datos">
+            <div class="ci-dato">
+              <div class="ci-dato-ico">📍</div>
+              <div>
+                <strong>Dirección</strong>
+                Independencia 234, Morón, Buenos Aires
+              </div>
+            </div>
+            <div class="ci-dato">
+              <div class="ci-dato-ico">🕓</div>
+              <div>
+                <strong>Horarios</strong>
+                Lunes a viernes · 16 a 20 hs
+              </div>
+            </div>
+            <div class="ci-dato">
+              <div class="ci-dato-ico">📱</div>
+              <div>
+                <strong>WhatsApp</strong>
+                +54 9 11 6180-2964
+              </div>
+            </div>
+            <div class="ci-dato">
+              <div class="ci-dato-ico">📸</div>
+              <div>
+                <strong>Instagram</strong>
+                @cima.aprendizaje
+              </div>
+            </div>
+          </div>
+
+          <a href="https://wa.me/5491161802964?text=Hola,%20quiero%20información%20sobre%20los%20talleres%20de%20CIMA." target="_blank" class="btn-azul">
+            Escribinos por WhatsApp
+          </a>
+
+        </div>
+
+        <!-- FORMULARIO -->
+        <div>
+          <div class="ci-form">
+            <h3>O dejanos tu consulta</h3>
+
+            <!-- IMPORTANTE: reemplazar action con la URL del Google Apps Script de CIMA -->
+            <form id="form-contacto" action="REEMPLAZAR_CON_URL_GOOGLE_SCRIPT" method="POST">
+
+              <div class="fg">
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+              </div>
+
+              <div class="fg">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="tu@email.com" required>
+              </div>
+
+              <div class="fg">
+                <label for="telefono">Teléfono / WhatsApp</label>
+                <input type="tel" id="telefono" name="telefono" placeholder="+54 9 11 ...">
+              </div>
+
+              <div class="fg">
+                <label for="interes">Me interesa</label>
+                <select id="interes" name="interes" required>
+                  <option value="" disabled selected>Seleccioná una opción</option>
+                  <option value="dc1">Darse Cuenta Nivel 1</option>
+                  <option value="dc2">Darse Cuenta Nivel 2</option>
+                  <option value="peldanos">Peldaños</option>
+                  <option value="carrera">Carrera de Coaching</option>
+                  <option value="info">Solo quiero información</option>
+                </select>
+              </div>
+
+              <div class="fg">
+                <label for="mensaje">Mensaje</label>
+                <textarea id="mensaje" name="mensaje" placeholder="Contanos qué estás buscando..."></textarea>
+              </div>
+
+              <button type="submit" class="form-btn">Enviar consulta</button>
+
+            </form>
+          </div>
+
+          <!-- MERCADO PAGO -->
+          <!-- IMPORTANTE: reemplazar href con el link de Mercado Pago de CIMA -->
+       <!--   <div class="mp-bloque">
+            <div class="mp-header">
+              <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:24px;height:24px;flex-shrink:0;">
+                <circle cx="18" cy="18" r="18" fill="#009EE3"/>
+                <path d="M9 22l4-7 3.5 5.5 3-4.5 4.5 6H9z" fill="#fff"/>
+              </svg>
+              <span class="mp-titulo">Pagá tu inscripción por Mercado Pago</span>
+            </div>
+            <p class="mp-sub">
+              ¿Ya hablamos y confirmaste tu lugar? Podés enviarnos la seña o el pago directamente desde acá.
+            </p>
+            <a href="REEMPLAZAR_CON_LINK_MERCADOPAGO" target="_blank" class="mp-btn">
+              💳 Ir al pago
+            </a>
+            <p class="mp-nota">🔒 Pago seguro · Tarjeta, débito o saldo MP</p>
+          </div>
+-->
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════ -->
+  <footer>
+    <p>Desarrollado por <a href="https://presenciaonline.github.io" target="_blank">Presencia Online</a></p>
+    <p>
+      <a href="https://presenciaonline.github.io/legal/privacidad.html">Privacidad</a> |
+      <a href="https://presenciaonline.github.io/legal/cookies.html">Cookies</a> |
+      <a href="https://presenciaonline.github.io/legal/terminos.html">Términos</a> |
+      <a href="https://presenciaonline.github.io/legal/disclaimer.html">Aviso legal</a>
+    </p>
+  </footer>
+
+
+  <!-- ══════════════════════════════════════
+       SCRIPTS
+  ══════════════════════════════════════ -->
+  <script>
+
+    // Menú hamburguesa
+    function toggleMenu() {
+      document.getElementById('nav-menu').classList.toggle('abierto');
+    }
+
+    // Scroll reveal
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    document.querySelectorAll('.bloque').forEach(el => observer.observe(el));
+
+    <!--
+    // Formulario de contacto
+   // document.getElementById('form-contacto').addEventListener('submit', function(e) {
+     // e.preventDefault();
+     // const btn = this.querySelector('button[type="submit"]');
+     // btn.textContent = 'Enviando...';
+     // btn.disabled = true;
+     // fetch(this.action, { method: 'POST', body: new FormData(this) })
+      //  .then(function() {
+       //   btn.textContent = '✅ ¡Consulta enviada!';
+        //  document.getElementById('form-contacto').reset();
+        //  setTimeout(function() {
+         //   btn.textContent = 'Enviar consulta';
+          //  btn.disabled = false;
+       //   }, 4000);
+       // })
+      //  .catch(function() {
+       //   btn.textContent = '❌ Error. Escribinos por WhatsApp.';
+       //  btn.disabled = false;
+      //  });
+   // });
+    -->
+
+    // Carrusel reflexiones (solo mobile)
+    let slideActual = 0;
+    const track = document.getElementById('carrusel-track');
+    const dots = document.querySelectorAll('.dot');
+
+    function irASlide(n) {
+      if (window.innerWidth > 768) return;
+      slideActual = n;
+      track.style.transform = `translateX(calc(-${n * 100}% - ${n * 16}px))`;
+      dots.forEach((d, i) => d.classList.toggle('activo', i === n));
+    }
+
+    // Swipe touch
+    let touchStartX = 0;
+    if (track) {
+      track.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; });
+      track.addEventListener('touchend', e => {
+        const diff = touchStartX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 50) {
+          if (diff > 0 && slideActual < 2) irASlide(slideActual + 1);
+          if (diff < 0 && slideActual > 0) irASlide(slideActual - 1);
+        }
+      });
+    }
+
+  </script>
+
+</body>
+</html>
